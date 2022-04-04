@@ -26,4 +26,4 @@ Link github
 https://github.com/A-Fayzullayevich/webtech_coursewor2
 
 Link heroku
-
+https://wiut-quiz.herokuapp.com/
