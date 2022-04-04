@@ -1,0 +1,23 @@
+<nav>
+    <div class="logo" onclick="window.location.href = '/'">
+        <img src="https://cdn-icons-png.flaticon.com/512/1205/1205526.png" alt="Logo Image">
+    </div>
+    <div class="hamburger">
+        <div class="line1"></div>
+        <div class="line2"></div>
+        <div class="line3"></div>
+    </div>
+    <ul class="nav-links">
+        <li><a href="/">Home</a></li>
+        <% if (hasAccess) { %>
+            <li><a href="/admin/create-test">Create test</a></li>
+            <li><a href="/admin/profile">Profile</a></li>
+            <form action="/signout" method="post">
+                <button type="submit" class="bg-transparent text-light">Logout</button>
+            </form>
+            <% }else{ %>
+                <li><a class="" href="/signin">Sign In</a></li>
+                <li><a class="" href="/signup">Sign Up</a></li>
+                <% } %>
+    </ul>
+</nav>

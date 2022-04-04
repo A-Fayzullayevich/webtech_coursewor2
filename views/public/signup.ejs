@@ -1,0 +1,37 @@
+<%- include('../components/head.ejs') %>
+    <link rel="stylesheet" href="/css/signup.css">
+    </head>
+
+    <body>
+        <%- include('../components/nav.ejs') %>
+            <div class="main">
+                <div class="container">
+                    <div class="top-header">
+                        <h3>Registration</h3>
+                        <p>Enter your credentials to create an account</p>
+                    </div>
+                    <form action="/signup" method="post">
+                        <div class="user mb-2">
+                            <input type="text" required name="username" placeholder="Enter your username" />
+                        </div>
+                        <div class="user mb-2">
+                            <select name="province" required class="form-control" id="">
+                                <option value="unknown"></option>
+                                <option value="andijan">Andijan</option>
+                                <option value="tashkent">Tashkent</option>
+                                <option value="fergana">Fergana</option>
+                            </select>
+                        </div>
+                        <div class="user mb-2">
+                            <input type="email" required name="email" placeholder="Enter your email" />
+                        </div>
+                        <div class="pass mb-2">
+                            <input type="password" required name="password" placeholder="Enter your password" />
+                        </div>
+                        <div class="btn">
+                            <button type="submit">Sign up</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <%- include('../components/end.ejs') %>

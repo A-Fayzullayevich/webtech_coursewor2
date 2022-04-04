@@ -1,0 +1,34 @@
+<%- include('../components/head.ejs') %>
+    <link rel="stylesheet" href="/css/quiz.css">
+    </head>
+
+    <body>
+        <%- include('../components/nav.ejs') %>
+            <div class="mains">
+
+                <div class="quiz-container" id="quiz">
+                    <div class="quiz-header">
+                        <p id="question">
+                            <%= question[0].question %>
+                        </p>
+                        <% if (question[0].variantList.length > 0) { %>
+
+
+                            <ul>
+                                <% for (let data of [...question[0].variantList,question[0].answer].sort(() => Math.random() - 0.5)) { %>
+                                    <li>
+                                        <input type="radio" name="answer" id="<%= data %>" class="answer">
+                                        <label for="<%= data %>" id="a_text"><%= data %></label>
+                                    </li>
+                                    <% } %>
+                                        <% } else { %>
+                                            <h1>Unfortunately there is no question available !!!</h1>
+                                            <% } %>
+
+                            </ul>
+                    </div>
+                    <button id="submit">Submit</button>
+                </div>
+
+            </div>
+            <%- include('../components/end.ejs') %>

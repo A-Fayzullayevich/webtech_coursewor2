@@ -1,0 +1,40 @@
+<%- include('../components/head.ejs') %>
+
+    </head>
+
+    <body>
+        <%- include('../components/nav.ejs') %>
+            <div class="main">
+                <div class="container containers">
+                    <div class="row">
+                        <% if (data.length > 0) { %>
+                            <% for (let question of data) { %>
+                                <div class="col-md-3 col-sm-6 item mb-2">
+                                    <div class="card item-card card-block">
+                                        <img src="https://static.pexels.com/photos/262550/pexels-photo-262550.jpeg" alt="Photo of sunset">
+                                        <h6 class="card-title  mt-3 mb-3">
+                                            <%= question.user_id.username %>
+                                        </h6>
+                                        <p class="card-text p-0">tricky question from
+                                            <span class="font-weight-bold"><%= question.user_id.province %></span> city</p>
+                                        <p class="card-text p-0"><span class="font-weight-bold">Question:</span>
+                                            <%= question.question %>
+                                        </p>
+                                        <a class="btn btn-primary" href="/admin/question-edit/<%= question._id%>">Edit</a>
+                                        <form class="my-2" action="/admin/delete-question" method="post">
+                                            <input type="hidden" name="questionId" value="<%= question._id %>">
+                                            <button class="w-100 btn btn-danger">Delete</button>
+                                        </form>
+
+                                    </div>
+                                </div>
+                                <% } %>
+                                    <% } else { %>
+                                        <h1>Unfortunately there is no question available !!!</h1>
+                                        <% } %>
+                    </div>
+
+                </div>
+
+            </div>
+            <%- include('../components/end.ejs') %>

@@ -1,0 +1,45 @@
+<%- include('../components/head.ejs') %>
+
+    </head>
+
+    <body>
+        <%- include('../components/nav.ejs') %>
+            <div class="main">
+                <form class="container" action="/admin/edit-test" method="post">
+                    <div class="form-group">
+                        <label for="question">Question</label>
+                        <input value="<%= question.question %>" type="text" required name="question" class="form-control" id="question" placeholder="......   ?">
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="wrong_answer1">Wrong answer (a)</label>
+                            <input type="text" value="<%= question.variantList[0] %>" required name="wrong_answer1" class="form-control" id="wrong_answer1" placeholder="......">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="wrong_answer2">Wrong answer (b)</label>
+                            <input type="text" value="<%= question.variantList[1] %>" required name="wrong_answer2" class="form-control" id="wrong_answer2" placeholder="........">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="wrong_answer3">Wrong answer (c)</label>
+                            <input type="text" value="<%= question.variantList[2] %>" required name="wrong_answer3" class="form-control" id="wrong_answer3" placeholder="......">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="wrong_answer4">Wrong answer (d)</label>
+                            <input value="<%= question.variantList[3] %>" type="text" required name="wrong_answer4" class="form-control" id="wrong_answer4" placeholder="........">
+                        </div>
+                    </div>
+                    <div class="form-row align-items-end">
+                        <div class="form-group col-md-8">
+                            <label for="answer">Answer</label>
+                            <input value="<%= question.answer %>" type="text" name="answer" required class="form-control" id="answer" placeholder="........">
+                        </div>
+                        <div class="form-group col-md-4">
+                            <input type="hidden" name="questionId" value="<%= question._id %>">
+                            <button type="submit" class="w-100 btn btn-primary">Submit</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <%- include('../components/end.ejs') %>
